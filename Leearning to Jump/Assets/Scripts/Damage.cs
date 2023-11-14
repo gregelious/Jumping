@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Health : MonoBehaviour
+public class Damage : MonoBehaviour
 {
-
     public int maxHealth;
-    public int currentHealth;   
+    public int currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void TakeDamage(int amount)
@@ -29,6 +28,14 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             SceneManager.LoadScene("GameOver");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.tag == "Player")
+        {
+            TakeDamage(1);
         }
     }
 }
