@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;                     //store the rigidbody of an object
 
+    public int maxHealth;
+    public int currentHealth;
 
 
     // Start is called before the first frame update
@@ -23,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
         speed = 10f;
         jump = 400f;
         rb = GetComponent<Rigidbody2D>();            //get the rigidbody of the object
+
+        maxHealth = 2;
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -52,8 +58,24 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+    }
 
+    void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
 
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.tag == "Obstacle")
+        {
+            TakeDamage(1);
+        }
     }
 
 
