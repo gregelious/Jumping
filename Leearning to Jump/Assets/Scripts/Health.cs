@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    void TakeDamage(int amount)
+    public void TakeDamage(int amount)
     {
         currentHealth -= amount;                        //lower health
         transform.position = new Vector2(startPos.position.x, startPos.position.y);

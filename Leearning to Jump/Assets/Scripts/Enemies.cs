@@ -22,11 +22,11 @@ public class Enemies : MonoBehaviour
     {
         if (left)
         {
-
+            transform.position = new Vector2(transform.position.x - speed, transform.position.y);
         }
         else
         {
-
+            transform.position = new Vector2(transform.position.x + speed, transform.position.y);
         }
     }
 
