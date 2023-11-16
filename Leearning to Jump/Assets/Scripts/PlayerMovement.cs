@@ -16,24 +16,12 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;         //store the rigidbody of an object
 
 
-    public int maxHealth;       //determines max amount of health the player can have
-    public int currentHealth;   //tracks current health of the player
-
-
-    public Transform startPos;
-
-    public GameObject health1;
-    public GameObject health2;
-
     // Start is called before the first frame update
     void Start()
     {
         speed = 10f;
         jump = 400f;
         rb = GetComponent<Rigidbody2D>();       //get the rigidbody of the object
-
-        maxHealth = 3;                  //set max health to two
-        currentHealth = maxHealth;      //set current health to max health
     }
 
     // Update is called once per frame
@@ -57,34 +45,9 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
-        if (other.gameObject.CompareTag("Respawn"))
-        {
-            TakeDamage(1);
-        }
     }
 
-    void TakeDamage(int amount)
-    {
-        currentHealth -= amount;                        //lower health
-        transform.position = new Vector2(startPos.position.x, startPos.position.y);
 
-        if (currentHealth == 2)
-        {
-            health2.SetActive(false);
-        }
-
-        if (currentHealth == 1)
-        {
-            health1.SetActive(false);
-        }
-
-
-        if (currentHealth <= 0)                         //if health equal zero
-        {
-            SceneManager.LoadScene("GameOver");         //go to GameOver Scene
-
-        }
-    }
     /*
         void OnTriggerEnter2D(Collider2D coll)
         {
