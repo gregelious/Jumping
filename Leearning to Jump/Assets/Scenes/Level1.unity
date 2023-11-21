@@ -646,7 +646,6 @@ GameObject:
   - component: {fileID: 1159834305}
   - component: {fileID: 1159834304}
   - component: {fileID: 1159834303}
-  - component: {fileID: 1159834309}
   - component: {fileID: 1159834308}
   - component: {fileID: 1159834307}
   m_Layer: 0
@@ -783,8 +782,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  jump: 0
-  isJumping: 0
+  jump: 1
+  isJumping: 1
 --- !u!114 &1159834308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,21 +801,6 @@ MonoBehaviour:
   startPos: {fileID: 1420877785}
   health1: {fileID: 1902450135}
   health2: {fileID: 125282283}
---- !u!114 &1159834309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159834301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1649c3cc411f1f646a7d1166b661d9f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  jump: 0
-  isJumping: 0
 --- !u!1 &1374325250
 GameObject:
   m_ObjectHideFlags: 0
